@@ -1,0 +1,17 @@
+server:
+  port: 8888
+
+spring:
+  application:
+    name: GATEWAY
+  cloud:
+    discovery:
+      enabled: true
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        service-name: ${spring.application.name}
+        register: true
+        health-check-path: /actuator/health
+        health-check-interval: 10s
